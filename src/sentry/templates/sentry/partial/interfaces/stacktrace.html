@@ -21,7 +21,7 @@
     <div class="module-content">
         <ul class="traceback">
             {% for frame in frames %}
-                <li class="frame{% if not frame.in_app %} system-frame{% endif %} frame-{{ forloop.counter0 }}">
+                <li class="frame{% if not frame.in_app %} system-frame{% endif %} frame-{{ forloop.counter0 }}{% if not frame.context and not frame.vars %} compact-frame{% endif %}">
                     <p>
                         {% if frame.filename %}
                             <code{% if frame.abs_path and frame.abs_path != filename %} title="{{ frame.abs_path }}"{% endif %}>{{ frame.filename }}</code>
